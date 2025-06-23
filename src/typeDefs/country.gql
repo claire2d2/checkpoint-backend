@@ -1,0 +1,12 @@
+type Country {
+    id: ID!
+    code: string!
+    name: string!
+    emoji: string!
+}
+
+
+type Query {
+    countries: Country[]
+    findCountryByCode(code: string): Country
+}
