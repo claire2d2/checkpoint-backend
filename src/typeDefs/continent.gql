@@ -1,0 +1,10 @@
+type Continent {
+    id: ID!
+    name: String!
+    countries: [Country]
+}
+
+extend type Query {
+    continents: [Continent]
+    findCountriesByContinent(id: ID): [Country]
+}

@@ -1,0 +1,23 @@
+type Country {
+    id: ID!
+    code: String!
+    name: String!
+    emoji: String!
+    continent: Continent
+}
+
+type Query {
+    countries: [Country]
+    findCountryByCode(code: String): Country
+}
+
+type Mutation {
+    addCountry(data: addCountryInput!): Country
+}
+
+input addCountryInput {
+    code: String!
+    name: String!
+    emoji: String!
+    continent_id: String!
+}
