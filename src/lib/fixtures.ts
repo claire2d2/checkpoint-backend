@@ -84,3 +84,19 @@ export async function seedDatabase() {
         throw error;
     }
 }
+
+export async function clearDatabase() {
+    try {
+        if (!dataSource.isInitialized) {
+            await dataSource.initialize();
+        }
+
+        const continentRepository = dataSource.getRepository(Continent);
+        const countryRepository = dataSource.getRepository(Country);
+
+        await countryRepository.clear();
+        await continentRepository.clear();
+    } catch (error) {
+        throw error;
+    }
+}

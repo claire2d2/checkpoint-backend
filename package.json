@@ -1,7 +1,9 @@
 {
     "scripts": {
         "start": "ts-node-dev --watch ./src ./src/index.ts",
-        "seed": "ts-node scripts/seed.ts"
+        "seed": "ts-node scripts/seed.ts",
+        "clear-db": "ts-node scripts/clear.ts",
+        "reset-seed": "npm run clear && npm run seed"
     },
     "dependencies": {
         "@apollo/server": "^4.10.2",
