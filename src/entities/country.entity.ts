@@ -3,7 +3,7 @@ import { Continent } from "./continent.entity";
 
 @Entity({ name: "countries" })
 export class Country {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: string;
 
     @Column({ unique: true })
