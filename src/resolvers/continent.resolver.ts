@@ -1,8 +1,11 @@
-import { ContinentService } from "../services/continent.service";
+import ContinentService from "../services/continent.service";
 
 export default {
     Query: {
-        findCountriesByContinent: async (_: any, { id }: { id: number }) => {
+        continents: async () => {
+            return new ContinentService().listContinents();
+        },
+        findCountriesByContinent: async (_: any, { id }: { id: string }) => {
             return new ContinentService().findCountriesByContinent(id);
         },
     },

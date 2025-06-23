@@ -1,8 +1,10 @@
 type Continent {
     id: ID!
-    name: string
+    name: String!
+    countries: [Country]
 }
 
-type Query {
+extend type Query {
+    continents: [Continent]
     findCountriesByContinent(id: ID): [Country]
 }

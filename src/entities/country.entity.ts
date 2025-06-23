@@ -4,13 +4,16 @@ import { Continent } from "./continent.entity";
 @Entity({ name: "countries" })
 export class Country {
     @PrimaryGeneratedColumn()
-    id: number;
+    id: string;
 
     @Column({ unique: true })
     code: string;
 
     @Column({ unique: true })
     name: string;
+
+    @Column()
+    emoji: string;
 
     @ManyToOne(() => Continent, (continent) => continent.countries)
     continent: Continent;

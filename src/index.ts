@@ -8,10 +8,11 @@ import datasource from "./lib/datasource";
 const server = new ApolloServer({ typeDefs, resolvers });
 
 async function main() {
+    await datasource.initialize();
     const { url } = await startStandaloneServer(server, {
         listen: { port: 4000 },
     });
-    await datasource.initialize();
+
     console.log(`🚀  Server ready at: ${url}`);
 }
 

@@ -3,8 +3,10 @@ import { loadFilesSync } from "@graphql-tools/load-files";
 import { mergeResolvers } from "@graphql-tools/merge";
 
 const resolversArray = loadFilesSync(path.join(__dirname, "."), {
-    extensions: ["resolver.js"],
+    extensions: ["resolver.ts"],
     recursive: true,
 });
 
-export default mergeResolvers(resolversArray);
+const merged = mergeResolvers(resolversArray);
+
+export default merged;

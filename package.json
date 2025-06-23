@@ -1,7 +1,7 @@
 {
     "scripts": {
-        "compile": "tsc",
-        "start": "npm run compile && node ./dist/index.js"
+        "start": "ts-node-dev --watch ./src ./src/index.ts",
+        "seed": "ts-node scripts/seed.ts"
     },
     "dependencies": {
         "@apollo/server": "^4.10.2",
