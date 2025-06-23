@@ -4,6 +4,10 @@ import { Continent } from "../entities/continent.entity";
 export default class ContinentService {
     continentRepository = dataSource.getRepository(Continent);
 
+    async createContinent(data: Continent) {
+        return this.continentRepository.save(data);
+    }
+
     async listContinents() {
         const result = await this.continentRepository.find({
             relations: ["countries"],
@@ -19,9 +23,10 @@ export default class ContinentService {
     }
 
     async findCountriesByContinent(id: string) {
-        return this.continentRepository.findOne({
+        const continent = await this.continentRepository.findOne({
             where: { id },
             relations: ["countries"],
         });
+        return continent ? continent.countries : [];
     }
 }
